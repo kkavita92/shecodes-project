@@ -21,6 +21,16 @@
 .App-intro {
   font-size: large;
 }
+/*
+.grayscale {
+  margin: 20px;
+  filter: grayscale(100%);
+}
+*/
+.contrast {
+  margin: 20px;
+  filter: contrast(150%) grayscale(100%);
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
