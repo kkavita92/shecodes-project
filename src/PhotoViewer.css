@@ -7,6 +7,16 @@
 
 }
 
+.filter-list {
+  padding-top: 10px;
+  width:100%;
+  text-align: center;
+}
+
+.filter-button {
+  display: inline-block;
+}
+
 .grayscale {
   filter: contrast(150%) grayscale(100%);
 }

@@ -58,17 +58,19 @@ class PhotoViewer extends Component {
           <input type="submit" value="Submit" />
         </form>
 
-        <form onSubmit={this.applyGrayScale}>
-          <input type="submit" value="Grayscale"/>
-        </form>
+        <div className="filter-list">
+          <form className="filter-button" onSubmit={this.applyGrayScale}>
+            <input type="submit" value="Grayscale"/>
+          </form>
 
-        <form onSubmit={this.applyBlurring}>
-          <input type="submit" value="Blur"/>
-        </form>
+          <form className="filter-button" onSubmit={this.applyBlurring}>
+            <input type="submit" value="Blur"/>
+          </form>
 
-        <form onSubmit={this.applySepia}>
-          <input type="submit" value="Sepia"/>
-        </form>
+          <form className="filter-button" onSubmit={this.applySepia}>
+            <input type="submit" value="Sepia"/>
+          </form>
+        </div>
 
         <div className="image-container">
           <img src={this.state.imageURL} className={"image-viewer" + (this.state.grayscale ? ' grayscale' : ' normal') + (this.state.blur ? ' blur' : ' normal') + (this.state.sepia ? ' sepia' : ' normal')} alt="" />
