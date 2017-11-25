@@ -6,11 +6,26 @@ class PhotoViewer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageURL: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1950&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'
+      previewURL: '',
+      imageURL: ''
     }
-  }a
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  handleChange(event) {
+    this.setState({previewURL: event.target.value});
+  }
+
+  handleSubmit(event) {
+    this.setState({imageURL: this.state.previewURL});
+    event.preventDefault();
+  }
 
   render() {
+
     let imagePreview = null;
 
     if (this.state.imageURL) {
@@ -18,8 +33,18 @@ class PhotoViewer extends Component {
     }
 
     return (
+      <div>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Enter image url:
+          <input type="text" value={this.state.previewURL} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+
       <div className="image-container">
         {imagePreview}
+      </div>
       </div>
     );
   }
