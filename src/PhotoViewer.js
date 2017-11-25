@@ -31,20 +31,22 @@ class PhotoViewer extends Component {
   }
 
   applyGrayScale(event) {
-    this.setState({grayscale: true});
+    var currentVal = this.state.grayscale;
+    this.setState({grayscale:!currentVal});
     event.preventDefault();
   }
 
   applyBlurring(event) {
-    this.setState({blur: true});
+    var currentVal = this.state.blur;
+    this.setState({blur:!currentVal});
     event.preventDefault();
   }
 
   applySepia(event) {
-    this.setState({sepia: true});
+    var currentVal = this.state.sepia;
+    this.setState({sepia:!currentVal});
     event.preventDefault();
   }
-
 
   render() {
 
