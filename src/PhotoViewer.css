@@ -29,6 +29,10 @@
   filter: blur(10px);
 }
 
+.dropshadow {
+  filter: drop-shadow(16px 16px 20px blue);
+}
+
 .sepia {
   filter: sepia(60%);
 }

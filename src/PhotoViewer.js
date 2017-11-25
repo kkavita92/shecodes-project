@@ -18,7 +18,6 @@ class PhotoViewer extends Component {
     this.applyGrayScale = this.applyGrayScale.bind(this);
     this.applyBlurring = this.applyBlurring.bind(this);
     this.applySepia = this.applySepia.bind(this);
-
   }
 
   handleChange(event) {
