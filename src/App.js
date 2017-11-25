@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {getPhoto} from './PhotoLoader.js';
 
 class App extends Component {
+  componentWillMount(){
+    getPhoto();
+  }
   render() {
     return (
       <div className="App">
