@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import PhotoEditor from './PhotoEditor.js'
 import './PhotoViewer.css';
 
 class PhotoViewer extends Component {
@@ -34,17 +34,20 @@ class PhotoViewer extends Component {
 
     return (
       <div>
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Enter image url:
-          <input type="text" value={this.state.previewURL} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Enter image url:
+            <input type="text" value={this.state.previewURL} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
 
-      <div className="image-container">
-        {imagePreview}
-      </div>
+        <div className="image-container">
+          {imagePreview}
+        </div>
+
+        <PhotoEditor />
+        
       </div>
     );
   }
