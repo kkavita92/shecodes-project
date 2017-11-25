@@ -8,12 +8,16 @@ class PhotoViewer extends Component {
     this.state = {
       previewURL: '',
       imageURL: '',
-      grayscale: false
+      grayscale: false,
+      blur: false,
+      sepia: false
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.applyGrayScale = this.applyGrayScale.bind(this);
+    this.applyBlurring = this.applyBlurring.bind(this);
+    this.applySepia = this.applySepia.bind(this);
 
   }
 
@@ -31,6 +35,17 @@ class PhotoViewer extends Component {
     event.preventDefault();
   }
 
+  applyBlurring(event) {
+    this.setState({blur: true});
+    event.preventDefault();
+  }
+
+  applySepia(event) {
+    this.setState({sepia: true});
+    event.preventDefault();
+  }
+
+
   render() {
 
     return (
@@ -47,8 +62,16 @@ class PhotoViewer extends Component {
           <input type="submit" value="Grayscale"/>
         </form>
 
+        <form onSubmit={this.applyBlurring}>
+          <input type="submit" value="Blur"/>
+        </form>
+
+        <form onSubmit={this.applySepia}>
+          <input type="submit" value="Sepia"/>
+        </form>
+
         <div className="image-container">
-          <img src={this.state.imageURL} className={"image-viewer " + (this.state.grayscale ? 'grayscale' : 'normal')} alt="" />
+          <img src={this.state.imageURL} className={"image-viewer" + (this.state.grayscale ? ' grayscale' : ' normal') + (this.state.blur ? ' blur' : ' normal') + (this.state.sepia ? ' sepia' : ' normal')} alt="" />
         </div>
       </div>
     );

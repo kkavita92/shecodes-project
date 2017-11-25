@@ -13,3 +13,11 @@
 
 .normal {
 }
+
+.blur {
+  filter: blur(10px);
+}
+
+.sepia {
+  filter: sepia(60%);
+}
