@@ -4,5 +4,12 @@
 }
 
 .image-container {
-  
+
+}
+
+.grayscale {
+  filter: contrast(150%) grayscale(100%);
+}
+
+.normal {
 }

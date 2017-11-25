@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import PhotoEditor from './PhotoEditor.js'
 import './PhotoViewer.css';
 
 class PhotoViewer extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
       previewURL: '',
-      imageURL: ''
+      imageURL: '',
+      grayscale: false
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.applyGrayScale = this.applyGrayScale.bind(this);
 
   }
 
@@ -24,13 +26,12 @@ class PhotoViewer extends Component {
     event.preventDefault();
   }
 
+  applyGrayScale(event) {
+    this.setState({grayscale: true});
+    event.preventDefault();
+  }
+
   render() {
-
-    let imagePreview = null;
-
-    if (this.state.imageURL) {
-      imagePreview = (<img src={this.state.imageURL} className="image-viewer" alt="" />);
-    }
 
     return (
       <div>
@@ -42,12 +43,13 @@ class PhotoViewer extends Component {
           <input type="submit" value="Submit" />
         </form>
 
-        <div className="image-container">
-          {imagePreview}
-        </div>
+        <form onSubmit={this.applyGrayScale}>
+          <input type="submit" value="Grayscale"/>
+        </form>
 
-        <PhotoEditor />
-        
+        <div className="image-container">
+          <img src={this.state.imageURL} className={"image-viewer " + (this.state.grayscale ? 'grayscale' : 'normal')} alt="" />
+        </div>
       </div>
     );
   }
